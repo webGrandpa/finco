@@ -5,7 +5,9 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request) {
   try {
-    // The limit has been removed to fetch all articles for client-side pagination.
+    const { searchParams } = new URL(request.url);
+    const limitParam = searchParams.get("limit");
+
     const parser = new Parser({
       customFields: {
         item: ["media:content"],
@@ -14,7 +16,15 @@ export async function GET(request) {
 
     const feed = await parser.parseURL("https://on.ge/rss");
 
-    const articles = feed.items.map((item) => ({
+    let items = feed.items;
+
+    
+    if (limitParam) {
+      const limit = parseInt(limitParam, 10);
+      items = items.slice(0, limit);
+    }
+
+    const articles = items.map((item) => ({
       title: item.title || "",
       link: item.link || "",
       contentSnippet: item.contentSnippet || "",
@@ -22,7 +32,7 @@ export async function GET(request) {
       enclosure: {
         url:
           item.enclosure?.url ||
-          item["media:content"]?.$?.url || 
+          item["media:content"]?.$?.url ||
           "https://placehold.co/400x200/e6f3ff/1b375d?text=No+Image",
       },
     }));
@@ -36,3 +46,4 @@ export async function GET(request) {
     );
   }
 }
+

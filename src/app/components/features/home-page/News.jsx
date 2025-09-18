@@ -1,13 +1,11 @@
-// src/app/components/News.jsx (or wherever your file is located)
-
 "use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import SectionHeaders from '../../ui/SectionHeaders';
-import ButtonWithArrow from '../../ui/buttons/ButtonWithArrow';
-import Button from '../../ui/buttons/Button';
-import HomeNews from '../../ui/cards/HomeNews';
+import ButtonWithArrow from '../../ui/buttons/ButtonWithArrow'; 
+import Button from '../../ui/buttons/Button'; 
+import HomeNews from '../../ui/cards/HomeNews'; 
 
 const News = () => {
   const [articles, setArticles] = useState([]);
@@ -45,7 +43,7 @@ const News = () => {
       />
             
       {loading && <p className="my-8">იტვირთება...</p>}
-      {error && <p className="my-8 text-gray-600">{error}</p>}
+      {error && <p className="my-8 text-red-600">{error}</p>}
 
       {!loading && !error && (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-8 w-full'>
@@ -57,10 +55,12 @@ const News = () => {
                 description={item.contentSnippet}
                 date={new Date(item.isoDate).toLocaleDateString("ka-GE")}
             >
-              <ButtonWithArrow 
-                buttonText="დაწვრილებით"
-                to={item.link} 
-              />
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                <ButtonWithArrow 
+                  buttonText="დაწვრილებით"
+                  onClick={() => {}}
+                />
+              </a>
             </HomeNews>
           ))}
         </div>
