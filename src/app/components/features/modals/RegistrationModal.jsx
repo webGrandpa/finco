@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Button from '../../ui/buttons/Button';
-import Loader from '../../loader/Loader';
+// import Loader from '../../loader/Loader';
 
 const RegistrationModal = ({ showModal, setShowModal, setShowLoginModal }) => {
   const [email, setEmail] = useState('');
@@ -103,7 +103,7 @@ const RegistrationModal = ({ showModal, setShowModal, setShowLoginModal }) => {
 
             <div className="pt-2 text-center text-sm">
               გაქვთ ანგარიში?
-              <button type="button" className="text-blue-500 hover:underline pl-2" onClick={() => { setShowModal(false); setShowLoginModal(true); }}>
+              <button type="button" className="text-blue-500 hover:underline pl-2 cursor-pointer" onClick={() => { setShowModal(false); setShowLoginModal(true); }}>
                 შესვლა
               </button>
             </div>
@@ -115,6 +115,7 @@ const RegistrationModal = ({ showModal, setShowModal, setShowLoginModal }) => {
                 hoverText="text-[#1b375d]"
                 hoverBg="bg-white"
                 disabled={isLoading}
+                textStart='center'
               />
             </div>
           </form>

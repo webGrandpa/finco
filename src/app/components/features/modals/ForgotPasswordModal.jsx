@@ -22,11 +22,11 @@ const ForgotPasswordModal = ({ showModal, setShowModal, setShowLoginModal }) => 
 
       setFormMessage({ 
         type: 'success', 
-        text: 'Если аккаунт с таким email существует, мы отправили на него ссылку для восстановления.' 
+        text: 'პაროლის აღდგენის ინსტრუქცია გაიგზავნა თქვენს ელ-ფოსტაზე.' 
       });
       setEmail(''); 
     } catch (error) {
-      setFormMessage({ type: 'error', text: 'Произошла ошибка. Попробуйте снова.' });
+      setFormMessage({ type: 'error', text: 'დაფიქსირდა შეცდომა. სცადეთ კიდევ ერთხელ.' });
     } finally {
       setIsLoading(false);
     }
@@ -105,15 +105,16 @@ const ForgotPasswordModal = ({ showModal, setShowModal, setShowLoginModal }) => 
                 hoverText="text-[#1b375d]"
                 hoverBg="bg-white"
                 disabled={isLoading}
+                textStart='center'
               />
             </div>
           </form>
 
           <div className="mt-6 text-center text-sm flex gap-5 justify-center items-center">
-            <Link href="/" className="text-gray-600 hover:text-blue-500 underline" onClick={() => setShowModal(false)}>
+            <Link href="/" className="text-gray-600 hover:text-blue-500 underline cursor-pointer" onClick={() => setShowModal(false)}>
               მთავარზე დაბრუნება
             </Link>
-            <button className="text-gray-600 hover:text-blue-500 underline" onClick={() => { setShowModal(false); setShowLoginModal(true); }}>
+            <button className="text-gray-600 hover:text-blue-500 underline cursor-pointer" onClick={() => { setShowModal(false); setShowLoginModal(true); }}>
               შესვლა
             </button>
           </div>

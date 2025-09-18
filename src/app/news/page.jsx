@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import SectionHeaders from "../components/ui/SectionHeaders";
 import NewsCard from "../components/ui/cards/NewsCard";
 import Button from "../components/ui/buttons/Button";
-import ButtonWithArrow from '../components/ui/buttons/ButtonWithArrow'; // Make sure the path is correct
+import ButtonWithArrow from '../components/ui/buttons/ButtonWithArrow';
 
 const NewsPage = () => {
   const [articles, setArticles] = useState([]);
@@ -19,7 +19,6 @@ const NewsPage = () => {
       setLoading(true);
       setError(null);
       try {
-        // Fetch all articles without a limit
         const response = await fetch('/api/news');
         if (!response.ok) {
           throw new Error(`Network response was not ok`);
@@ -37,7 +36,6 @@ const NewsPage = () => {
     fetchNews();
   }, []);
 
-  // --- Pagination Logic ---
   const totalPages = Math.ceil(articles.length / articlesPerPage);
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
@@ -46,17 +44,16 @@ const NewsPage = () => {
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
-      window.scrollTo(0, 0); // Scroll to top on page change
+      window.scrollTo(0, 0);
     }
   };
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
-      window.scrollTo(0, 0); // Scroll to top on page change
+      window.scrollTo(0, 0);
     }
   };
-  // --- End of Pagination Logic ---
 
   return (
     <div className="flex flex-col items-center gap-8 py-10 px-6 md:px-10 lg:px-20 bg-[#e6f3ff9f] mt-20 min-h-screen">
@@ -101,8 +98,6 @@ const NewsPage = () => {
               </NewsCard>
             ))}
           </div>
-
-          {/* Pagination Controls */}
           <div className="flex justify-center items-center gap-4 mt-8 w-full">
             <ButtonWithArrow
               buttonText="წინა"

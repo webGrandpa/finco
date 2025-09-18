@@ -25,7 +25,7 @@ const LoginModal = ({ showModal, setShowModal, setShowRegistrationModal, setShow
         setEmail('');
         setPassword('');
       } else {
-        throw new Error('Неверный email или пароль');
+        throw new Error('არასწორი ელ-ფოსტა ან პაროლი');
       }
     } catch (err) {
       setError(err.message);
@@ -87,10 +87,10 @@ const LoginModal = ({ showModal, setShowModal, setShowRegistrationModal, setShow
             {error && <p className="text-sm text-red-600 text-center">{error}</p>}
 
             <div className="flex justify-between items-center text-sm">
-              <button type="button" className="text-gray-600 hover:text-blue-500 underline" onClick={() => { setShowModal(false); setShowForgotPasswordModal(true); }}>
+              <button type="button" className="text-gray-600 hover:text-blue-500 underline cursor-pointer" onClick={() => { setShowModal(false); setShowForgotPasswordModal(true); }}>
                 დაგავიწყდათ პაროლი?
               </button>
-              <button type="button" className="text-gray-600 hover:text-blue-500 underline" onClick={() => { setShowModal(false); setShowRegistrationModal(true); }}>
+              <button type="button" className="text-gray-600 hover:text-blue-500 underline cursor-pointer" onClick={() => { setShowModal(false); setShowRegistrationModal(true); }}>
                 რეგისტრაცია
               </button>
             </div>
@@ -102,6 +102,7 @@ const LoginModal = ({ showModal, setShowModal, setShowRegistrationModal, setShow
                 hoverText="text-[#1b375d]"
                 hoverBg="bg-white"
                 disabled={isLoading}
+                textStart='center'
               />
             </div>
           </form>
