@@ -1,6 +1,7 @@
-// src/components/NavBar.jsx
-import React from 'react'
-import LiTag from '../ui/cards/LiTag'
+"use client";
+
+import React from 'react';
+import LiTag from '../ui/cards/LiTag';
 
 const NavBar = ({ onLinkClick }) => {
   return (
@@ -17,4 +18,4 @@ const NavBar = ({ onLinkClick }) => {
   )
 }
 
-export default NavBar
+export default NavBar;

@@ -23,7 +23,7 @@ const EducationPage = () => {
                 paragraph={educationHeader.paragraph}
                 hasDivider={true}
                 maxWidth='w-full'
-                padding='py-5'
+                padding='py-0'
             />
             
             <div className='flex flex-col gap-10 md:px-20 w-full'>

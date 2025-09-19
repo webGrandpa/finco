@@ -5,7 +5,7 @@ import ContactUs from '../components/features/home-page/ContactUs';
 
 const ContactPage = () => {
   return (
-    <div className='mt-20'>
+    <div className='mt-10'>
         <ContactUs />
     </div>
   );

@@ -1,7 +1,5 @@
-// src/components/Services.jsx
-
 import ServicesCard from '../../ui/cards/ServicesCard';
-import ButtonWithArrow from '../../ui/buttons/ButtonWithArrow';
+import LinkButton from '../../ui/buttons/LinkButton';
 import SectionHeaders from '../../ui/SectionHeaders';
 import { servicesData } from '../../../../lib/data/home-page/servicesData';
 
@@ -21,10 +19,10 @@ const Services = () => {
                 paragraph={service.paragraph}
                 features={service.features}
             >
-                <ButtonWithArrow
-                    buttonText="დეტალები"
+                <LinkButton
+                    title="დეტალები"
                     self='self-end'
-                    to={service.link}
+                    href="/services"
                 />
             </ServicesCard>
         ))}

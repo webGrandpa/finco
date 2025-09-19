@@ -24,12 +24,12 @@ const TeamCard = ({
 
             <div className="flex flex-col flex-grow gap-3 px-6 pb-6">
                 <h4 className="text-md text-gray-600">{teamRole}</h4>
-                <h3 className="text-md underline text-gray-500">{teamExperience}</h3>
+                <h3 className="text-md font-semibold text-gray-500">{teamExperience}</h3>
                 <p className="text-sm text-gray-500 flex-grow min-h-[80px] line-clamp-5">
                     {teamDescription}
                 </p>
 
-                <span className="mt-auto pt-2 font-medium text-gray-700">{teamContact}</span>
+                <span className="mt-auto pt-2 font-medium text-gray-700 underline cursor-pointer">{teamContact}</span>
             </div>
         </div>
     )

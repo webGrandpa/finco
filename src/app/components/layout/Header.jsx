@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -73,7 +72,7 @@ const Header = () => {
           <NavBar />
           {isLoggedIn ? (
             <div className="flex items-center flex-col space-x-2">
-              <Link href="/userprofile" className="flex items-center space-x-2 rounded-lg hover:bg-gray-100 transition-colors">
+              <Link href="/user-profile" className="flex items-center space-x-2 rounded-lg hover:bg-gray-100 transition-colors">
                 <img src={'/userProfileIcon.svg'} alt="User Profile" className="h-10 w-10" />
                 <span className="text-[#1b375d] font-semibold">{userEmail}</span>
               </Link>
@@ -120,7 +119,7 @@ const Header = () => {
             {isLoggedIn ? (
               <>
                 <div className="flex items-center space-x-2 w-full">
-                  <img src={userProfileIcon} alt="User Profile" className="h-10 w-10" />
+                  <img src={'/userProfileIcon.svg'} alt="User Profile" className="h-10 w-10" />
                   <span className="text-[#1b375d] font-semibold text-sm break-all">{userEmail}</span>
                 </div>
                 <Button
