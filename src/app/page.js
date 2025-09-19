@@ -1,15 +1,32 @@
-//src/app/page.js
-//Homepage
+// Homepage with Lazy Loading
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Hero from '../app/components/features/home-page/Hero';
-import AboutUs from '../app/components/features/home-page/AboutUs';
-import Services from '../app/components/features/home-page/Services';
-import WhyUs from '../app/components/features/home-page/WhyUs';
-import Education from '../app/components/features/home-page/Education';
-import News from '../app/components/features/home-page/News';
-import FAQ from '../app/components/features/home-page/FAQ';
-import ContactUs from '../app/components/features/home-page/ContactUs';
+import Loader from './components/loader/Loader';
+
+// Lazy load ing
+const AboutUs = dynamic(() => import('../app/components/features/home-page/AboutUs'), {
+  loading: () => <Loader />,
+});
+const Services = dynamic(() => import('../app/components/features/home-page/Services'), {
+  loading: () => <Loader />,
+});
+const WhyUs = dynamic(() => import('../app/components/features/home-page/WhyUs'), {
+  loading: () => <Loader />,
+});
+const Education = dynamic(() => import('../app/components/features/home-page/Education'), {
+  loading: () => <Loader />,
+});
+const News = dynamic(() => import('../app/components/features/home-page/News'), {
+  loading: () => <Loader />,
+});
+const FAQ = dynamic(() => import('../app/components/features/home-page/FAQ'), {
+  loading: () => <Loader />,
+});
+const ContactUs = dynamic(() => import('../app/components/features/home-page/ContactUs'), {
+  loading: () => <Loader />,
+});
 
 const HomePage = () => {
   return (

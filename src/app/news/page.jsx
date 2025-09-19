@@ -5,6 +5,7 @@ import SectionHeaders from "../components/ui/SectionHeaders";
 import NewsCard from "../components/ui/cards/NewsCard";
 import Button from "../components/ui/buttons/Button";
 import ButtonWithArrow from '../components/ui/buttons/ButtonWithArrow';
+import Loader from '../components/loader/Loader';
 
 const NewsPage = () => {
   const [articles, setArticles] = useState([]);
@@ -65,11 +66,7 @@ const NewsPage = () => {
         gap='1'
       />
 
-      {loading && (
-        <p className="my-8 text-lg text-gray-600">
-          სიახლეების ჩამოტვირთვა...
-        </p>
-      )}
+      {loading && <Loader />}
 
       {error && !loading && (
           <p className="my-8 text-lg text-red-600">{error}</p>

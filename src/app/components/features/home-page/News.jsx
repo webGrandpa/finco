@@ -6,6 +6,7 @@ import SectionHeaders from '../../ui/SectionHeaders';
 import ButtonWithArrow from '../../ui/buttons/ButtonWithArrow'; 
 import Button from '../../ui/buttons/Button'; 
 import HomeNews from '../../ui/cards/HomeNews'; 
+import Loader from '../../loader/Loader';
 
 const News = () => {
   const [articles, setArticles] = useState([]);
@@ -41,8 +42,8 @@ const News = () => {
         paragraph="გაეცანით უახლეს ინფორმაციას ფინანსების, ბუღალტერიის და ბიზნესის სფეროში"
         textCenter='center'
       />
-            
-      {loading && <p className="my-8">იტვირთება...</p>}
+
+      {loading && <Loader />}
       {error && <p className="my-8 text-red-600">{error}</p>}
 
       {!loading && !error && (

@@ -75,8 +75,8 @@ const ChatBot = () => {
                 <h2 className="text-[14px]">ასისტენტი</h2>
               </div>
             </div>
-            <button onClick={toggleChat} className="text-gray-400 hover:text-gray-800">
-              <Image src="/closeicon.svg" alt="Close Chat" width={24} height={24} />
+            <button onClick={toggleChat} className="text-gray-400 hover:text-gray-800 w-8 h-6 cursor-pointer">
+              <Image src="/closeicon.svg" alt="Close Chat" width={15} height={15} />
             </button>
           </div>
           <div className="flex-grow p-4 overflow-y-auto space-y-4 bg-white">
