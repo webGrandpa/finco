@@ -3,13 +3,19 @@
 import React from 'react';
 import Image from 'next/image';
 
-const ButtonWithArrow = ({ buttonText, onClick, disabled = false, self = 'self-center', showArrow = true }) => {
+const ButtonWithArrow = ({ buttonText, 
+  onClick, 
+  disabled = false, 
+  self = 'self-center', 
+  showArrow = true,
+  width = 'w-full'
+}) => {
   return (
-    <div className={`md:w-52 w-auto h-14 flex justify-center items-center ${self}`}>
+    <div className={`md:w-52 ${width} h-14 flex justify-center items-center ${self}`}>
       <button
         onClick={onClick}
         disabled={disabled}
-        className="group relative mt-7 flex items-center justify-evenly w-full
+        className="group relative mt-7 flex items-center justify-evenly w-52
        rounded-3xl bg-[#EBF0F5] px-6 py-1.5 text-[#1B365D] shadow-md
       transition-all duration-200 hover:scale-101 cursor-pointer
       active:scale-99 hover:border-[0.2px] hover:shadow-none mb-4

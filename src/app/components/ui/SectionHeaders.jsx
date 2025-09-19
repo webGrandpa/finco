@@ -16,6 +16,7 @@ const SectionHeaders = ({
   gap = "4",
   dividerScale = 10,
   maxWidth = "md:max-w-[680px]",
+  mdprop = ""
 }) => {
   const [dividerScaleX, setDividerScaleX] = useState(0);
   const sectionRef = useRef(null);
@@ -54,7 +55,7 @@ const SectionHeaders = ({
     <div
       ref={sectionRef}
       className={`flex flex-col ${padding} ${bgcolor} 
-      w-full rounded-${rounded} gap-${gap} text-${textCenter} items-${textCenter}`}
+      w-full rounded-${rounded} gap-${gap} text-${textCenter} items-${textCenter} ${mdprop}`}
     >
       <h2 className={`${size} font-bold text-[#1B365D]`}>{header}</h2>
 

@@ -1,19 +1,17 @@
-//cards/NewsCard
-
-
 import Image from 'next/image';
 
 const NewsCard = ({ image, header, paragraph, date, children }) => {
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden p-4
-     flex h-full flex-col md:flex-row justify-center md:justify-items-start transition-transform hover:scale-101 duration-300">
-      <div className="relative w-full md:max-w-[324px] h-auto rounded-xl flex-shrink-0">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden p-4 flex h-full flex-col md:flex-row justify-center md:justify-items-start transition-transform hover:scale-101 duration-300">
+      
+      {/* THIS IS THE CORRECTED LINE */}
+      <div className="relative w-full h-48 md:h-full md:max-w-[324px] rounded-xl flex-shrink-0">
         <Image
-          src={image}
-          alt={header}
+          src={image || '/placeholder-image.png'} // Added a fallback image
+          alt={header || 'News article image'}
           fill
           style={{ objectFit: 'cover' }}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, 33vw"
           className="rounded-lg"
         />
       </div>
@@ -29,7 +27,7 @@ const NewsCard = ({ image, header, paragraph, date, children }) => {
 
         <div className="flex justify-between items-center mt-auto pt-4">
           <span className="text-sm text-gray-500">{date}</span>
-          <div>
+          <div className='flex items-center space-x-2 w-full justify-center md:justify-end'>
             {children}
           </div>
         </div>

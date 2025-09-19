@@ -116,7 +116,7 @@ const Header = () => {
             flex flex-col items-center p-6 space-y-4 pt-20 shadow-lg
           `}>
           <NavBar onLinkClick={() => setMenuOpen(false)} />
-          <div className="flex flex-col space-y-4 items-start justify-start w-full px-0 md:px-4">
+          <div className="flex flex-col space-y-4 items-start justify-start w-full pl-6 md:px-4">
             {isLoggedIn ? (
               <>
                 <div className="flex items-center space-x-2 w-full">

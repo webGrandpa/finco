@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const LiTag = ({ title, href, onClick }) => {
   return (
-    <div className="text-[#374151d1] lg:hover:text-[#1b375d] cursor-pointer">
+    <div className="text-[#374151d1] lg:hover:text-[#1b375d] cursor-pointer w-full whitespace-nowrap">
       <Link 
         href={href} 
         onClick={onClick}

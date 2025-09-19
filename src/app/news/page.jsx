@@ -101,8 +101,9 @@ const NewsPage = () => {
               onClick={handlePrevPage}
               disabled={currentPage === 1}
               showArrow={false}
+              width='w-32'
             />
-            <span className="mt-2 text-lg font-semibold text-[#1b375d]">
+            <span className="mt-2 text-lg font-semibold text-[#1b375d] whitespace-nowrap">
               {currentPage} / {totalPages}
             </span>
             <ButtonWithArrow
@@ -110,6 +111,7 @@ const NewsPage = () => {
               onClick={handleNextPage}
               disabled={currentPage === totalPages}
               showArrow={false}
+              width='w-32'
             />
           </div>
         </>

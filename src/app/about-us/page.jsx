@@ -1,10 +1,8 @@
-// src/app/about-us/page.js
 "use client";
 
 import React, { useState } from 'react';
 import SectionHeaders from '../components/ui/SectionHeaders';
 import ServiceCard from '../components/ui/cards/ServicesCard';
-import HeroCard from '../components/ui/cards/HeroCards';
 import Button from '../components/ui/buttons/Button';
 import ConsultationModal from '../components/features/modals/ConsultationModal';
 import AboutUsCard from '../components/ui/cards/AboutUsCard';
@@ -17,15 +15,16 @@ import {
   teamHeader,
   teamMembers
 } from '@/lib/data/AboutUsData';
+import TeamCard from '../components/ui/cards/TeamCard';
 
 const AboutUsPage = () => {
   const [showConsultationModal, setShowConsultationModal] = useState(false);
-
   const openConsultationModal = () => setShowConsultationModal(true);
 
   return (
     <>
       <div id="about-us-page" className='flex flex-col items-center gap-8 py-10 px-6 md:px-10 lg:px-20 bg-[#e6f3ff9f]'>
+        {/* About Us Header */}
         <SectionHeaders
           header={aboutUsHeader.header}
           paragraph={aboutUsHeader.paragraph}
@@ -34,15 +33,15 @@ const AboutUsPage = () => {
           padding='pt-20'
         />
 
+        {/* Mission Section */}
         <div className='flex flex-col md:flex-row justify-between p-6 md:p-8 lg:p-10 w-full gap-8'>
-          <div className='flex flex-col gap-5 justify-start text-start w-full md:w-1/2'>
+          <div className='flex flex-col gap-5 items-center justify-start md:text-start w-full md:w-1/2'>
             <SectionHeaders
               header={missionData.header}
               paragraph={missionData.paragraph}
               hasDivider={false}
-              textCenter='text-center md:text-start'
               size='text-xl'
-              
+              mdprop='text-center md:text-start'
             />
           </div>
           <div className='mission grid md:grid-cols-2 grid-cols-1 gap-4 w-full md:w-1/2 mt-4 md:mt-0'>
@@ -50,7 +49,7 @@ const AboutUsPage = () => {
               <AboutUsCard
                 key={card.id}
                 image={card.image}
-                number={card.numTitle} 
+                number={card.numTitle}
                 description={card.textTitle}
                 animateCount={true}
               />
@@ -58,6 +57,7 @@ const AboutUsPage = () => {
           </div>
         </div>
 
+        {/* Values Section */}
         <div className='flex flex-col justify-between items-center p-6 md:p-8 lg:p-10 w-full gap-8'>
           <SectionHeaders
             header={valuesHeader.header}
@@ -80,6 +80,7 @@ const AboutUsPage = () => {
         </div>
       </div>
       
+      {/* Team Section */}
       <div className='flex flex-col justify-between py-10 items-center px-6 md:px-10 lg:px-20 w-full gap-8 bg-white'>
         <SectionHeaders
           header={teamHeader.header}
@@ -91,13 +92,14 @@ const AboutUsPage = () => {
         />
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 w-full'>
           {teamMembers.map(member => (
-            <HeroCard
+            <TeamCard
               key={member.id}
-              variant="teamMember"
-              cardImage={member.image}
-              numTitle={member.name}
-              textTitle={member.title}
-              text={member.experience}
+              teamImage={member.image}
+              teamName={member.name}
+              teamRole={member.title}
+              teamExperience={member.experience}
+              teamDescription={member.description}
+              teamContact={member.contact}
             />
           ))}
         </div>
