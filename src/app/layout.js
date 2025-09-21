@@ -2,7 +2,7 @@
 
 import Header from "../app/components/layout/Header";
 import Footer from "../app/components/layout/Footer";
-import ChatBot from "../app/components/layout/ChatBot";
+import ChatBot from "../app/components/ChatBot";
 import ScrollToTop from "../app/components/layout/ScrollToTop";
 import "./globals.css";
 
