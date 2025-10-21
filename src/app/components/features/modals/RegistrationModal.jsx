@@ -75,6 +75,21 @@ const RegistrationModal = ({ showModal, setShowModal, setShowLoginModal }) => {
           </button>
           <div className="flex flex-col items-center justify-center text-center mb-6">
             <Image src="/fincoLogo.svg" alt="Logo" width={160} height={40} className="mb-4" />
+            <button
+            onClick={() => setShowModal(false)}
+            className="absolute top-4 right-4
+            cursor-pointer text-gray-500 hover:text-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
             <h2 className="text-2xl font-bold text-gray-800">რეგისტრაციის ფორმა</h2>
             <p className="text-gray-500 text-sm mt-2">გთხოვთ შეიყვანოთ თქვენი მონაცემები</p>
           </div>

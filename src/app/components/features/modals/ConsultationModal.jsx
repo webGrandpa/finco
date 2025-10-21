@@ -91,7 +91,7 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
             </div>
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                ტელეფონის ნომერი (არასავალდებულო)
+                ტელეფონის ნომერი <span className='text-[10px] text-gray-500'>(არასავალდებულო)</span>
               </label>
               <input
                 type="tel"
@@ -105,7 +105,7 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                წერილი (არასავალდებულო)
+                წერილი <span className='text-[10px] text-gray-500'>(არასავალდებულო)</span>
               </label>
               <textarea
                 id="message"

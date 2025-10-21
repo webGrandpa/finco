@@ -85,11 +85,12 @@ const NewsPage = () => {
               >
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
                   <Button
-                    title="სრულად ნახვა"
+                    title="სრულად"
                     bgColor="bg-[#1b375d]"
                     textColor="text-white"
                     hoverText="text-[#1b375d]"
                     hoverBg="bg-white"
+                    paddingY="py-1.5"
                   />
                 </a>
               </NewsCard>

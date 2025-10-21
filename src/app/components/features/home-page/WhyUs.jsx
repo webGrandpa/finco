@@ -31,7 +31,7 @@ const WhyUs = () => {
             hasDivider={false}
             textCenter='start'
           />
-          <div className='flex flex-col sm:flex-row items-start px-4 justify-start gap-5 pt-4'>
+          <div className='flex flex-col sm:flex-row items-start px-4 justify-start gap-5 md:pt-4'>
             {whyUsData.partnership.figures.map(figure => (
                 <Figure key={figure.id} image={figure.image} caption={figure.caption} />
             ))}

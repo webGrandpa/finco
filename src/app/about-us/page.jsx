@@ -31,6 +31,7 @@ const AboutUsPage = () => {
           hasDivider={true}
           maxWidth='w-full'
           padding='pt-20'
+          textCenter='text-start lg:text-center'
         />
 
         {/* Mission Section */}
@@ -41,7 +42,8 @@ const AboutUsPage = () => {
               paragraph={missionData.paragraph}
               hasDivider={false}
               size='text-xl'
-              mdprop='text-center md:text-start'
+              mdprop='text-start'
+              textCenter='text-start'
             />
           </div>
           <div className='mission grid md:grid-cols-2 grid-cols-1 gap-4 w-full md:w-1/2 mt-4 md:mt-0'>

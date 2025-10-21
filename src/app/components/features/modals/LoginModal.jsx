@@ -67,6 +67,21 @@ const LoginModal = ({ showModal, setShowModal, setShowRegistrationModal, setShow
           </button>
           <div className="w-full flex justify-center mb-6">
             <Image src="/fincoLogo.svg" alt="Logo" width={160} height={40} />
+            <button
+            onClick={() => setShowModal(false)}
+            className="absolute top-4 right-4
+            cursor-pointer text-gray-500 hover:text-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
           </div>
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
@@ -86,7 +101,7 @@ const LoginModal = ({ showModal, setShowModal, setShowRegistrationModal, setShow
             
             {error && <p className="text-sm text-red-600 text-center">{error}</p>}
 
-            <div className="flex justify-between items-center text-sm">
+            <div className="flex justify-between items-center text-sm flex-col gap-2">
               <button type="button" className="text-gray-600 hover:text-blue-500 underline cursor-pointer" onClick={() => { setShowModal(false); setShowForgotPasswordModal(true); }}>
                 დაგავიწყდათ პაროლი?
               </button>

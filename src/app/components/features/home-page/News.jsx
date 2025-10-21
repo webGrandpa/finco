@@ -58,7 +58,7 @@ const News = () => {
             >
               <a href={item.link} target="_blank" rel="noopener noreferrer">
                 <ButtonWithArrow 
-                  buttonText="დაწვრილებით"
+                  buttonText="სრულად"
                   onClick={() => {}}
                 />
               </a>
