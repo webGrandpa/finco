@@ -6,6 +6,7 @@ import ServiceCard from '../components/ui/cards/ServicesCard';
 import Button from '../components/ui/buttons/Button';
 import ConsultationModal from '../components/features/modals/ConsultationModal';
 import AboutUsCard from '../components/ui/cards/AboutUsCard';
+import AnimatedDivider from '../components/ui/AnimatedDivider';
 import {
   aboutUsHeader,
   missionData,
@@ -25,14 +26,15 @@ const AboutUsPage = () => {
     <>
       <div id="about-us-page" className='flex flex-col items-center gap-8 py-10 px-6 md:px-10 lg:px-20 bg-[#e6f3ff9f]'>
         {/* About Us Header */}
-        <SectionHeaders
-          header={aboutUsHeader.header}
-          paragraph={aboutUsHeader.paragraph}
-          hasDivider={true}
-          maxWidth='w-full'
-          padding='pt-20'
-          textCenter='text-start lg:text-center'
-        />
+        <div className='flex flex-col justify-center items-center p-6 md:p-8 lg:p-10 w-full gap-4 mt-10'>
+          <h2 className={`text-3xl font-bold text-[#1B365D]`}
+          >{aboutUsHeader.header}</h2>
+          <AnimatedDivider charCount={aboutUsHeader.header.length} />
+          <p className={`text-lg text-[#374151b9] max-w-full md:max-w-[1000px] self-center md:self-center lg:self-center text-center`}>
+            {aboutUsHeader.paragraph}
+          </p>
+
+        </div>
 
         {/* Mission Section */}
         <div className='flex flex-col md:flex-row justify-between p-6 md:p-8 lg:p-10 w-full gap-8'>
@@ -68,7 +70,7 @@ const AboutUsPage = () => {
             textCenter='center'
             size='text-2xl'
           />
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full'>
+          <div className='grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-4 w-full'>
             {coreValues.map(value => (
               <ServiceCard
                 direction='flex-col'

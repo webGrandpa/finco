@@ -59,11 +59,11 @@ const NewsPage = () => {
   return (
     <div className="flex flex-col items-center gap-8 py-10 px-6 md:px-10 lg:px-20 bg-[#e6f3ff9f] mt-20 min-h-screen">
       <SectionHeaders
-        header="სტატიები და სიახლეები"
+        header="სიახლეები"
         paragraph="უახლესი ინფორმაცია On.ge-დან"
         hasDivider={true}
         padding="py-0"
-        gap='1'
+        gap='2'
       />
 
       {loading && <Loader />}

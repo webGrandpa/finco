@@ -15,6 +15,7 @@ const ServicesCard = ({
   direction = 'flex-row',
   layout = 'default',
   componentHeight = 'h-full',
+  padding = 'p-6'
 }) => {
 
   if (layout === 'news') {
@@ -35,7 +36,7 @@ const ServicesCard = ({
   }
 
   return (
-    <div className={`flex flex-col ${textStart} items-start p-6 shadow-md w-full rounded-xl bg-white ${componentHeight}`}>
+    <div className={`flex flex-col ${textStart} items-start ${padding} shadow-md w-full rounded-xl bg-white  ${componentHeight}`}>
       <div className={`flex ${textStart} gap-2 items-center p-2 ${direction} w-full`}>
         <Image src={img} alt={header} width={64} height={64} className={`${width} ${height} sm:w-auto sm:h-auto`} />
         <h3 className="text-l md:text-xl font-semibold text-[#1b365d] sm:text-start text-start">{header}</h3>

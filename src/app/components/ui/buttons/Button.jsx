@@ -20,7 +20,7 @@ const Button = ({
         onClick={onClick}
         className={`max-md:w-full
           relative px-4 ${paddingY} rounded-[8px] 
-          overflow-hidden border border-[#1b375d] shadow-2xl
+          overflow-hidden border border-[#1b375d] shadow-lg
           transition-all hover:shadow-[#1b375d]
           ${bgColor} ${textColor}
           hover:${hoverText}

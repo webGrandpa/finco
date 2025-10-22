@@ -28,7 +28,7 @@ const AboutUsCard = ({
   return (
     <div
       ref={animateCount ? ref : null}
-      className="flex flex-col items-center justify-center p-4 w-full h-full text-center"
+      className="flex flex-col items-center justify-center p-4 w-full h-full text-center bg-white rounded-xl shadow-md"
     >
       {image && (
         <Image 
