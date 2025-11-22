@@ -28,7 +28,7 @@ const Footer = () => {
         { id: 4, title: 'ორშაბათი - პარასკევი: 09:00 - 18:00', href: '#' }
     ];
   return (
-    <div className='bg-[#1B365D] pt-8 pb-12 px-6 md:px-10 lg:px-20 text-white 
+    <div className='bg-[#1B365D] pt-8 pb-12 px-6 md:px-10 lg:px-40 text-white 
     flex flex-col md:flex-row justify-between gap-10 md:gap-40
     '>
       <div className='social-media w-full md:w-1/4'>

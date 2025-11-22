@@ -11,7 +11,7 @@ import { educationData } from '../../../../lib/data/home-page/educationData';
 
 const Education = () => {
   return (
-    <div className='text-center bg-white flex flex-col justify-between gap-6 px-6 md:px-10 lg:px-20 pb-10'>
+    <div className='text-center bg-white flex flex-col justify-between gap-6 px-6 md:px-10 lg:px-40 pb-10'>
       <SectionHeaders
         header={educationData.sectionHeader.header}
         paragraph={educationData.sectionHeader.paragraph}

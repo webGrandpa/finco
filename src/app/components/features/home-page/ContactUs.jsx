@@ -8,7 +8,7 @@ import { contactData } from '../../../../lib/data/home-page/contactData';
 
 const ContactUs = () => {
   return (
-    <div className='px-6 md:px-10 lg:px-20 w-full py-10'>
+    <div className='px-6 md:px-10 lg:px-40 w-full py-10'>
         <div className='bg-gray-100 rounded-3xl shadow-md'>
             <SectionHeaders
               header={contactData.sectionHeader.header}

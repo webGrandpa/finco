@@ -63,7 +63,7 @@ const Header = () => {
 
   return (
     <>
-      <div className={`header w-full h-[80px] px-6 md:px-10 lg:px-20
+      <div className={`header w-full h-[80px] px-6 md:px-10 lg:px-40
        flex items-center justify-between fixed top-0 left-0 z-50 ${styles.headerGradient} shadow-md`}>
         <Link href="/">
           <Image src="/fincoLogo.svg" alt="FinCo Logo" width={170} height={50} className="h-[50px] w-auto" />

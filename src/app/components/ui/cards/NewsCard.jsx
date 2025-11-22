@@ -7,7 +7,7 @@ const NewsCard = ({ image, header, paragraph, date, children }) => {
       {/* THIS IS THE CORRECTED LINE */}
       <div className="relative w-full h-48 md:h-full md:max-w-[324px] rounded-xl flex-shrink-0">
         <Image
-          src={image || '/placeholder-image.png'} // Added a fallback image
+          src={image || '/placeholder-image.png'}
           alt={header || 'News article image'}
           fill
           style={{ objectFit: 'cover' }}

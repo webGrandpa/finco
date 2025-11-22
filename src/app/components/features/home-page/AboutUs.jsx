@@ -9,7 +9,7 @@ import { aboutUsData } from '@/lib/data/home-page/aboutUsData';
 const AboutUs = () => {
   return (
     <div id="about-us" className='flex flex-col items-center justify-center 
-    gap-8 py-10 px-6 md:px-10 lg:px-20 bg-[#e6f3ff9f]'>
+    gap-8 py-10 px-6 md:px-10 lg:px-40 bg-[#e6f3ff9f]'>
         <SectionHeaders
           header={aboutUsData.sectionHeader.header}
           paragraph={aboutUsData.sectionHeader.paragraph}

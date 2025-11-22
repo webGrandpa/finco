@@ -115,13 +115,14 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
-            <div className='w-full text-center'>
+            <div className='w-full text-center flex items-center justify-center'>
               <Button
                 title="მოთხოვნის გაგზავნა"
                 bgColor="bg-[#1b375d]"
                 textColor="text-white"
                 hoverText="text-[#1b375d]"
                 hoverBg="bg-white"
+                textStart='center'
               />
             </div>
           </form>

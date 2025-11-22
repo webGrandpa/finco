@@ -30,7 +30,7 @@ const ContactUs = dynamic(() => import('../app/components/features/home-page/Con
 
 const HomePage = () => {
   return (
-    <div>
+    <div className=''>
       <Hero />
       <AboutUs />
       <Services />

@@ -26,7 +26,7 @@ const Hero = () => {
             </div>
             <div className="relative flex flex-col mt-14 
             md:gap-10 gap-6 items-start justify-center 
-            text-start h-full px-6 md:px-10 lg:px-20 py-10">
+            text-start h-full px-6 md:px-10 lg:px-40 py-10">
                 <h1 
                     className="text-3xl md:text-5xl font-extrabold text-[#1b375d] leading-normal"
                     dangerouslySetInnerHTML={{ __html: heroData.title }} 

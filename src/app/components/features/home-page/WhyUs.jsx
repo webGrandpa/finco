@@ -7,7 +7,7 @@ import { whyUsData } from '../../../../lib/data/home-page/whyUsData';
 
 const WhyUs = () => {
   return (
-    <div className='text-center pb-10 bg-[#1B365D0D] flex flex-col items-center gap-6 px-6 md:px-10 lg:px-20'>
+    <div className='text-center pb-10 bg-[#1B365D0D] flex flex-col items-center gap-6 px-6 md:px-10 lg:px-40'>
       <SectionHeaders
         header={whyUsData.sectionHeader.header}
         paragraph={whyUsData.sectionHeader.paragraph}
