@@ -8,13 +8,13 @@ import React, { useState } from 'react';
 import SectionHeaders from '../components/ui/SectionHeaders';
 import ServicesPageCard from '../components/ui/cards/ServicesPageCard';
 import Button from '../components/ui/buttons/Button';
-import RegistrationModal from '../components/features/modals/RegistrationModal';
+import RegistrationCourseModal from '../components/features/modals/RegistrationCourseModal';
 import { educationHeader, educationCourses } from '@/lib/data/EducationData'; 
 
 const EducationPage = () => {
-    const [showRegistrationModal, setShowRegistrationModal] = useState(false);
+    const [showRegistrationCourseModal, setShowRegistrationCourseModal] = useState(false);
     
-    const openRegistrationModal = () => setShowRegistrationModal(true);
+    const openRegistrationCourseModal = () => setShowRegistrationCourseModal(true);
 
     return (
         <div className='flex flex-col items-center gap-8 py-10 px-6 md:px-10 lg:px-20 bg-[#e6f3ff9f] mt-20'>
@@ -43,16 +43,16 @@ const EducationPage = () => {
                             textColor="text-white"
                             hoverText="text-[#1b375d]"
                             hoverBg="bg-white"
-                            onClick={openRegistrationModal}
+                            onClick={openRegistrationCourseModal}
                         />
                     </ServicesPageCard>
                 ))}
             </div>
 
-            {showRegistrationModal && (
-                <RegistrationModal
-                    showModal={showRegistrationModal}
-                    setShowModal={setShowRegistrationModal}
+            {showRegistrationCourseModal && (
+                <RegistrationCourseModal
+                    showModal={showRegistrationCourseModal}
+                    setShowModal={setShowRegistrationCourseModal}
                 />
             )}
         </div>

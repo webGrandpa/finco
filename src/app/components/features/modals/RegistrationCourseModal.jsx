@@ -1,41 +1,46 @@
-// src/components/ConsultationModal.jsx
+// src/components/RegistrationCourseModal.jsx
 import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import Button from '../../ui/buttons/Button';
 
-const ConsultationModal = ({ showModal, setShowModal }) => {
+const RegistrationCourseModal = ({ showModal, setShowModal }) => {
   const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+  const [reason, setReason] = useState('');
 
   // Status: 'idle' | 'loading' | 'success' | 'error'
   const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleConsultationRequest = (e) => {
+  const handleRegistrationRequest = (e) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
 
     const templateParams = {
       name: name,
+      surname: surname,
       email: email,
       phone: phone,
-      message: message, // Matches {{message}} in the new template
+      reason: reason,
     };
 
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,        // Same Service ID
-        process.env.NEXT_PUBLIC_EMAILJS_CONSULTATION_TEMPLATE_ID, // NEW Template ID for Consultation
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY         // Same Public Key
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
       .then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
-          setStatus('success');
+          setStatus('success'); // Switch to Success View
+          
+          // Optional: Close modal automatically after 3 seconds
+          // setTimeout(() => setShowModal(false), 4000);
         },
         (error) => {
           console.error('FAILED...', error);
@@ -48,12 +53,14 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
   // Reset form when modal closes/opens
   useEffect(() => {
     if (!showModal) {
+      // Wait a bit for transition to finish before resetting state
       setTimeout(() => {
         setStatus('idle');
         setName('');
+        setSurname('');
         setEmail('');
         setPhone('');
-        setMessage('');
+        setReason('');
         setErrorMessage('');
       }, 300);
     }
@@ -83,7 +90,7 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
           {/* Close Button */}
           <button
             onClick={() => setShowModal(false)}
-            className="absolute top-4 right-4 cursor-pointer text-gray-500 hover:text-gray-700 transition-colors"
+            className="absolute top-4 right-4 cursor-pointer text-gray-400 hover:text-gray-700 transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -98,12 +105,12 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">მოთხოვნა გაგზავნილია!</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">მადლობა!</h3>
               <p className="text-gray-600 mb-8 max-w-xs">
-                თქვენი შეტყობინება მიღებულია. ჩვენი გუნდი მალე დაგიკავშირდებათ.
+                თქვენი განაცხადი მიღებულია. ჩვენი წარმომადგენელი მალე დაგიკავშირდებათ.
               </p>
               <div onClick={() => setShowModal(false)}>
-                <Button
+                 <Button
                   title="დახურვა"
                   bgColor="bg-green-600"
                   textColor="text-white"
@@ -114,23 +121,18 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
               </div>
             </div>
           ) : (
-            /* ----------------- FORM VIEW ----------------- */
+            
+          /* ----------------- FORM VIEW ----------------- */
             <>
               <div className="flex flex-col items-center justify-center text-center mb-6">
                 <img src={'/fincoLogo.svg'} alt="Logo" className="w-48 h-auto mb-4" />
-                <h2 className="text-2xl font-bold text-gray-800">
-                  კონსულტაციის მოთხოვნა
-                </h2>
-                <p className="text-gray-500 text-sm mt-2">
-                  შეავსეთ მონაცემების დაფა და ჩვენ დაგიკავშირდებით უახლოეს დროში
-                </p>
+                <h2 className="text-2xl font-bold text-gray-800">კურსზე რეგისტრაცია</h2>
+                <p className="text-gray-500 text-sm mt-2">შეავსეთ სარეგისტრაციო ფორმა და ჩვენ დაგიკავშირდებით</p>
               </div>
 
-              <form onSubmit={handleConsultationRequest} className="space-y-4">
+              <form onSubmit={handleRegistrationRequest} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    სახელი
-                  </label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">სახელი</label>
                   <input
                     type="text"
                     id="name"
@@ -141,9 +143,18 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    ელექტრონული ფოსტა
-                  </label>
+                  <label htmlFor="surname" className="block text-sm font-medium text-gray-700 mb-1">გვარი</label>
+                  <input
+                    type="text"
+                    id="surname"
+                    value={surname}
+                    onChange={(e) => setSurname(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-[#1b375d] focus:border-[#1b375d] outline-none transition-all"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">ელექტრონული ფოსტა</label>
                   <input
                     type="email"
                     id="email"
@@ -154,9 +165,7 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    ტელეფონის ნომერი <span className='text-[10px] text-gray-500'>(არასავალდებულო)</span>
-                  </label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">მობილური ნომერი</label>
                   <input
                     type="tel"
                     id="phone"
@@ -166,17 +175,15 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
                     required
                   />
                 </div>
-
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    წერილი <span className='text-[10px] text-gray-500'>(არასავალდებულო)</span>
-                  </label>
+                  <label htmlFor="reason" className="block text-sm font-medium text-gray-700 mb-1">რატომ გსურთ კურსის გავლა?</label>
                   <textarea
-                    id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    rows="2"
+                    id="reason"
+                    value={reason}
+                    onChange={(e) => setReason(e.target.value)}
+                    rows="3"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-[#1b375d] focus:border-[#1b375d] outline-none transition-all"
+                    required
                   />
                 </div>
 
@@ -189,7 +196,7 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
 
                 <div className='w-full text-center flex items-center justify-center pt-2'>
                   <Button
-                    title={status === 'loading' ? "იგზავნება..." : "მოთხოვნის გაგზავნა"}
+                    title={status === 'loading' ? "იგზავნება..." : "რეგისტრაცია"}
                     bgColor={status === 'loading' ? "bg-gray-400" : "bg-[#1b375d]"}
                     textColor="text-white"
                     hoverText={status === 'loading' ? "text-white" : "text-[#1b375d]"}
@@ -207,4 +214,4 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
   );
 };
 
-export default ConsultationModal;
+export default RegistrationCourseModal;

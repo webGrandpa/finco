@@ -1,15 +1,34 @@
-
 "use client";
 
 import React, { useState } from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGooglePlusG } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGooglePlusG, FaEnvelope } from 'react-icons/fa';
 
 const SocialMediaIcons = () => {
   const socialIcons = [
-    { name: 'facebook', icon: FaFacebookF, color: '#3b5999', href: '#' },
-    { name: 'twitter', icon: FaTwitter, color: '#55acee', href: '#' },
-    { name: 'linkedin', icon: FaLinkedinIn, color: '#0077b5', href: '#' },
-    { name: 'google', icon: FaGooglePlusG, color: '#dd4b39', href: '#' },
+    { 
+      name: 'facebook', 
+      icon: FaFacebookF, 
+      color: '#3b5999', 
+      href: 'https://www.facebook.com/p/Finco-time-%E1%83%A4%E1%83%98%E1%83%9C%E1%83%99%E1%83%9D-100088219473874/?locale=ka_GE' 
+    },
+    { 
+      name: 'twitter', 
+      icon: FaTwitter, 
+      color: '#55acee', 
+      href: 'https://x.com/' 
+    },
+    { 
+      name: 'linkedin', 
+      icon: FaLinkedinIn, 
+      color: '#0077b5', 
+      href: 'https://Linkedin.com' 
+    },
+    { 
+      name: 'email', // Changed name for clarity
+      icon: FaEnvelope, // CHANGED: Google+ is dead, use Envelope icon for email
+      color: '#dd4b39', 
+      href: 'mailto:timefinco@gmail.com' // <--- FIX IS HERE
+    },
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -19,6 +38,8 @@ const SocialMediaIcons = () => {
       {socialIcons.map((social, index) => {
         const IconComponent = social.icon;
         const isHovered = hoveredIndex === index;
+        // Check if it's an email link
+        const isMail = social.href.startsWith('mailto');
 
         return (
           <li
@@ -29,6 +50,9 @@ const SocialMediaIcons = () => {
           >
             <a
               href={social.href}
+              // Open web links in new tab, keep mail in same tab
+              target={isMail ? "_self" : "_blank"} 
+              rel="noopener noreferrer"
               className='
                 relative w-11 h-11 bg-white flex items-center justify-center 
                 rounded-full border-[3px] border-white overflow-hidden

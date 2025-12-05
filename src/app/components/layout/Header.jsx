@@ -8,18 +8,19 @@ import { AiOutlineClose } from 'react-icons/ai';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../ui/headerGradient.module.css';
-import LoginModal from '../features/modals/LoginModal';
-import RegistrationModal from '../features/modals/RegistrationModal';
-import ForgotPasswordModal from '../features/modals/ForgotPasswordModal';
+// import LoginModal from '../features/modals/LoginModal'; // Commented out
+// import RegistrationModal from '../features/modals/RegistrationModal'; // Commented out
+// import ForgotPasswordModal from '../features/modals/ForgotPasswordModal'; // Commented out
 import BurgerOverlay from '../ui/BurgerOverlay';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showRegistrationModal, setShowRegistrationModal] = useState(false);
-  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
+  // UNUSED STATE: Comment out these lines if the modals and login functionality are disabled
+  // const [showLoginModal, setShowLoginModal] = useState(false);
+  // const [showRegistrationModal, setShowRegistrationModal] = useState(false);
+  // const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [userEmail, setUserEmail] = useState('');
 
   const menuRef = useRef(null);
 
@@ -27,19 +28,22 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleLoginSuccess = (email) => {
-    setIsLoggedIn(true);
-    setUserEmail(email);
-    setShowLoginModal(false);
-  };
+  // UNUSED FUNCTIONS: Comment out or remove if not needed for the landing page
+  // const handleLoginSuccess = (email) => {
+  //   setIsLoggedIn(true);
+  //   setUserEmail(email);
+  //   setShowLoginModal(false);
+  // };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUserEmail('');
-  };
+  // const handleLogout = () => {
+  //   setIsLoggedIn(false);
+  //   setUserEmail('');
+  // };
 
   useEffect(() => {
-    const isAnyModalOpen = showLoginModal || showRegistrationModal || showForgotPasswordModal;
+    // UNUSED LOGIC: Comment out modal check if not needed
+    // const isAnyModalOpen = showLoginModal || showRegistrationModal || showForgotPasswordModal;
+    const isAnyModalOpen = false; // Set to false to simplify
 
     if (menuOpen || isAnyModalOpen) {
       document.body.classList.add('no-scroll');
@@ -59,7 +63,13 @@ const Header = () => {
       document.removeEventListener('mousedown', handleOutsideClick);
       document.body.classList.remove('no-scroll');
     };
-  }, [menuOpen, showLoginModal, showRegistrationModal, showForgotPasswordModal, menuRef]);
+  // Simplified dependencies since modals are disabled
+  }, [menuOpen, menuRef]);
+
+  // Set to false for deployment to hide auth elements
+  const isLoggedIn = false;
+  const userEmail = '';
+  // End of simplification
 
   return (
     <>
@@ -68,9 +78,13 @@ const Header = () => {
         <Link href="/">
           <Image src="/fincoLogo.svg" alt="FinCo Logo" width={170} height={50} className="h-[50px] w-auto" />
         </Link>
-        <div className="hidden lg:flex items-center space-x-8 max-md:w-full text-center justify-between w-[75%]">
+        <div className="hidden lg:flex items-center space-x-8 max-md:w-full text-center justify-end w-full">
+          {/* normaly div wrapper of navbar have w-[75%] and justify-between but for landing page we needed to do changes */}
+
+
           <NavBar />
-          {isLoggedIn ? (
+          {/* DESKTOP VIEW BUTTONS: START */}
+          {/* {isLoggedIn ? (
             <div className="flex items-center flex-col space-x-2">
               <Link href="/user-profile" className="flex items-center space-x-2 rounded-lg hover:bg-gray-100 transition-colors">
                 <img src={'/userProfileIcon.svg'} alt="User Profile" className="h-10 w-10" />
@@ -81,8 +95,9 @@ const Header = () => {
                 onClick={handleLogout}
               >გამოსვლა</button>
             </div>
-          ) : (
-            <div className="flex space-x-4 max-md:w-full text-center">
+          ) : ( */}
+            {/* Hiding Login/Registration buttons for landing page deployment */}
+            {/* <div className="flex space-x-4 max-md:w-full text-center">
               <Button
                 title="შესვლა"
                 onClick={() => setShowLoginModal(true)}
@@ -100,7 +115,8 @@ const Header = () => {
                 hoverBg="bg-white"
               />
             </div>
-          )}
+          )} */}
+          {/* DESKTOP VIEW BUTTONS: END */}
         </div>
         <div className="lg:hidden z-50">
           <button onClick={toggleMenu} aria-label="Toggle Menu" className="text-[#1b375d] text-4xl">
@@ -116,7 +132,8 @@ const Header = () => {
           `}>
           <NavBar onLinkClick={() => setMenuOpen(false)} />
           <div className="flex flex-col space-y-4 items-start justify-start w-full pl-6 md:px-4">
-            {isLoggedIn ? (
+            {/* MOBILE VIEW BUTTONS: START */}
+            {/* {isLoggedIn ? (
               <>
                 <div className="flex items-center space-x-2 w-full">
                   <img src={'/userProfileIcon.svg'} alt="User Profile" className="h-10 w-10" />
@@ -156,14 +173,16 @@ const Header = () => {
                   hoverBg="bg-white"
                 />
               </>
-            )}
+            )} */}
+            {/* MOBILE VIEW BUTTONS: END */}
           </div>
         </div>
       </div>
 
       <BurgerOverlay isVisible={menuOpen} />
 
-      <LoginModal
+      {/* MODALS: Comment out the modal components as they are not needed */}
+      {/* <LoginModal
         showModal={showLoginModal}
         setShowModal={setShowLoginModal}
         setShowForgotPasswordModal={setShowForgotPasswordModal}
@@ -181,7 +200,7 @@ const Header = () => {
         showModal={showForgotPasswordModal}
         setShowModal={setShowForgotPasswordModal}
         setShowLoginModal={setShowLoginModal}
-      />
+      /> */}
     </>
   );
 };

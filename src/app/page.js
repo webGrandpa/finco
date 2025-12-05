@@ -36,7 +36,9 @@ const HomePage = () => {
       <Services />
       <WhyUs />
       <Education />
-      <News />
+      {/* <News /> */}
+      {/* commented cuz of landing page */}
+      
       <FAQ />
       <ContactUs />
     </div>

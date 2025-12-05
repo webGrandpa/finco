@@ -22,7 +22,9 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <Footer />
-          <ChatBot />
+          {/* <ChatBot /> */}
+          {/* commented cuz of landing page */}
+          
         </div>
       </body>
     </html>
