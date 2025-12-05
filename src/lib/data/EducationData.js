@@ -10,7 +10,7 @@ export const educationCourses = [
         id: 1,
         header: 'ბუღალტრული კურსები',
         paragraph: 'ბუღალტრული აღრიცხვა და ფინანსური სტანდარტების პრაქტიკული შესწავლა.',
-        image: '/edu1.svg',
+        image: '/edu1.webp',
         features: [
             "საბაზისო ბუღალტერია",
             "საგადასახადო სისტემა",
@@ -22,7 +22,7 @@ export const educationCourses = [
         id: 2,
         header: 'ფინანსური ანალიზი',
         paragraph: 'ბიზნესის ფინანსური მონაცემების გაანალიზება და ეფექტური მართვა.',
-        image: '/edu2.svg',
+        image: '/edu2.webp',
         features: [
             "ფინანსური ანალიზის საფუძვლები",
             "ბიუჯეტირება",
@@ -34,7 +34,7 @@ export const educationCourses = [
         id: 3,
         header: 'სამართლის საფუძვლები',
         paragraph: 'იურიდიული ცოდნა ბიზნეს პროცესებისთვის',
-        image: '/edu3.svg',
+        image: '/edu3.webp',
         features: [
             "ბიზნესის რეგისტრაცია",
             "ხელშეკრულების შედგენა",

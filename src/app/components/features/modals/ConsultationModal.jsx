@@ -9,7 +9,6 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
 
-  // Status: 'idle' | 'loading' | 'success' | 'error'
   const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -22,15 +21,15 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
       name: name,
       email: email,
       phone: phone,
-      message: message, // Matches {{message}} in the new template
+      message: message,
     };
 
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,        // Same Service ID
-        process.env.NEXT_PUBLIC_EMAILJS_CONSULTATION_TEMPLATE_ID, // NEW Template ID for Consultation
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_CONSULTATION_TEMPLATE_ID,
         templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY         // Same Public Key
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY 
       )
       .then(
         (response) => {

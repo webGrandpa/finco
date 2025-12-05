@@ -47,7 +47,7 @@ const ServicesCard = ({
           <ul className="text-[#374151] list-disc list-inside space-y-1 mb-2">
             {features.map((item, index) => (
               <li className='flex items-center justify-start gap-2' key={index}>
-                <Image src="/Ser4.svg" alt="vector" width={16} height={16} />
+                <Image src="/Ser4.webp" alt="vector" width={16} height={16} />
                 {item}
               </li>
             ))}

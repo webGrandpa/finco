@@ -41,7 +41,7 @@ const ServicesPageCard = ({
           <ul className="space-y-2 mb-2 pb-4 list-none">
             {features.map((item, index) => (
               <li className='flex items-center justify-start gap-3' key={index}>
-                <Image src="/Ser4.svg" alt="vector" width={16} height={16} />
+                <Image src="/Ser4.webp" alt="vector" width={16} height={16} />
                 <span className='text-[#374151]'>{item}</span>
               </li>
             ))}

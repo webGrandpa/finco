@@ -19,5 +19,5 @@ export const aboutUsData = {
             textTitle: "ნდობა და რეპუტაცია", 
             fontSize: "base" }
     ],
-    image: '/teamImage.svg' 
+    image: '/teamImage.webp' 
 };
