@@ -1,6 +1,7 @@
 // src/components/RegistrationCourseModal.jsx
 import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import Image from 'next/image';
 import Button from '../../ui/buttons/Button';
 
 const RegistrationCourseModal = ({ showModal, setShowModal }) => {
@@ -35,15 +36,14 @@ const RegistrationCourseModal = ({ showModal, setShowModal }) => {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
       .then(
-        (response) => {
-          console.log('SUCCESS!', response.status, response.text);
-          setStatus('success'); // Switch to Success View
+        () => {
+          setStatus('success');
           
           // Optional: Close modal automatically after 3 seconds
           // setTimeout(() => setShowModal(false), 4000);
         },
         (error) => {
-          console.error('FAILED...', error);
+          console.error('Email send failed:', error);
           setStatus('error');
           setErrorMessage('დაფიქსირდა შეცდომა სერვერზე. გთხოვთ სცადოთ მოგვიანებით.');
         }
@@ -125,7 +125,7 @@ const RegistrationCourseModal = ({ showModal, setShowModal }) => {
           /* ----------------- FORM VIEW ----------------- */
             <>
               <div className="flex flex-col items-center justify-center text-center mb-6">
-                <img src={'/fincoLogo.svg'} alt="Logo" className="w-48 h-auto mb-4" />
+                <Image src="/fincoLogo.svg" alt="Logo" width={192} height={48} className="mb-4" />
                 <h2 className="text-2xl font-bold text-gray-800">კურსზე რეგისტრაცია</h2>
                 <p className="text-gray-500 text-sm mt-2">შეავსეთ სარეგისტრაციო ფორმა და ჩვენ დაგიკავშირდებით</p>
               </div>

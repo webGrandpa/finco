@@ -36,7 +36,7 @@ const News = () => {
   }, []);
 
   return (
-    <div className='bg-[#1B365D0D] flex flex-col items-center px-6 md:px-10 lg:px-40 py-10'>
+    <div className='bg-[#1B365D0D] flex flex-col items-center px-6 md:px-10 lg:px-16 xl:px-40 py-10'>
       <SectionHeaders
         header="სიახლეები და სტატიები"
         paragraph="გაეცანით უახლეს ინფორმაციას ფინანსების, ბუღალტერიის და ბიზნესის სფეროში"
@@ -48,9 +48,9 @@ const News = () => {
 
       {!loading && !error && (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-8 w-full'>
-          {articles.map((item, index) => (
+          {articles.map((item) => (
             <HomeNews
-                key={index}
+                key={item.link}
                 imageSrc={item.enclosure?.url}
                 title={item.title}
                 description={item.contentSnippet}

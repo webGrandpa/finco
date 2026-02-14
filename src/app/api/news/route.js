@@ -21,7 +21,13 @@ export async function GET(request) {
     
     if (limitParam) {
       const limit = parseInt(limitParam, 10);
-      items = items.slice(0, limit);
+      if (isNaN(limit) || limit < 1) {
+        return NextResponse.json(
+          { error: "Limit must be a positive integer" },
+          { status: 400 }
+        );
+      }
+      items = items.slice(0, Math.min(limit, 50));
     }
 
     const articles = items.map((item) => ({

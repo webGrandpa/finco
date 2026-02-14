@@ -18,7 +18,7 @@ const ChatBot = () => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
-    const userMessage = { text: input, sender: 'user' };
+    const userMessage = { id: crypto.randomUUID(), text: input, sender: 'user' };
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
     setInput('');
@@ -39,7 +39,7 @@ const ChatBot = () => {
       if (!response.ok) throw new Error('Failed to get response from server');
 
       const data = await response.json();
-      const aiMessage = { text: data.text, sender: 'ai' };
+      const aiMessage = { id: crypto.randomUUID(), text: data.text, sender: 'ai' };
       setMessages(prevMessages => [...prevMessages, aiMessage]);
 
     } catch (error) {
@@ -80,8 +80,8 @@ const ChatBot = () => {
             </button>
           </div>
           <div className="flex-grow p-4 overflow-y-auto space-y-4 bg-white">
-            {messages.map((msg, index) => (
-              <div key={index} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+            {messages.map((msg) => (
+              <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`p-2 max-w-[75%] rounded-lg shadow-md break-words ${msg.sender === 'user' ? 'bg-[#1B365D] text-white rounded-br-none' : 'bg-[#E6F3FF] text-gray-800 rounded-bl-none'}`}>
                   {msg.text}
                 </div>

@@ -1,16 +1,33 @@
 // next.config.mjs
-import path from 'path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["joey.on.ge", "cdn.on.ge", "on.ge", "via.placeholder.com", "rachel.on.ge"],
     remotePatterns: [
       { protocol: "https", hostname: "**.on.ge" },
       { protocol: "https", hostname: "via.placeholder.com" },
+      { protocol: "https", hostname: "placehold.co" },
     ],
   },
-  
+
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-XSS-Protection", value: "1; mode=block" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
+      },
+    ];
+  },
+
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,

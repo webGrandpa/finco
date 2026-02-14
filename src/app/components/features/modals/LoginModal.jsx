@@ -17,16 +17,14 @@ const LoginModal = ({ showModal, setShowModal, setShowRegistrationModal, setShow
     setError('');
 
     try {
+      // TODO: Replace this mock with a real authentication API call
+      // Example: const response = await fetch('/api/auth/login', { method: 'POST', body: JSON.stringify({ email, password }) });
       await new Promise(resolve => setTimeout(resolve, 1500));
 
-      // fetch.
-      if (password === 'password123') {
-        onLoginSuccess(email);
-        setEmail('');
-        setPassword('');
-      } else {
-        throw new Error('არასწორი ელ-ფოსტა ან პაროლი');
-      }
+      // Mock success for development — remove when real auth is implemented
+      onLoginSuccess(email);
+      setEmail('');
+      setPassword('');
     } catch (err) {
       setError(err.message);
     } finally {

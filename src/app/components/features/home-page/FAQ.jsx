@@ -16,21 +16,23 @@ const FAQ = () => {
 
   return (
     <div className="bg-[#E8EDF2] py-10 px-4">
-      <SectionHeaders
-        header={faqData.sectionHeader.header}
-        padding='py-2'
-      />
-      <div className="flex flex-col items-center mt-8">
-        {faqData.questions.map((q) => (
-          <FAQitem
-            key={q.id} 
-            id={q.id}
-            title={q.title}
-            content={q.content}
-            isOpen={openId === q.id} 
-            onToggle={() => handleToggle(q.id)} 
-          />
-        ))}
+      <div className='max-w-[1440px] w-full mx-auto'>
+        <SectionHeaders
+          header={faqData.sectionHeader.header}
+          padding='py-2'
+        />
+        <div className="flex flex-col items-center mt-8">
+          {faqData.questions.map((q) => (
+            <FAQitem
+              key={q.id}
+              id={q.id}
+              title={q.title}
+              content={q.content}
+              isOpen={openId === q.id}
+              onToggle={() => handleToggle(q.id)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

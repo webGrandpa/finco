@@ -73,89 +73,33 @@ const Header = () => {
 
   return (
     <>
-      <div className={`header w-full h-[80px] px-6 md:px-10 lg:px-40
+      <div className={`header w-full h-[80px] px-6 md:px-10 lg:px-16 xl:px-40 
        flex items-center justify-between fixed top-0 left-0 z-50 ${styles.headerGradient} shadow-md`}>
-        <Link href="/">
-          <Image src="/fincoLogo.svg" alt="FinCo Logo" width={170} height={50} className="h-[50px] w-auto" />
-        </Link>
-        <div className="hidden lg:flex items-center space-x-8 max-md:w-full text-center justify-end w-full">
-          {/* normaly div wrapper of navbar have w-[75%] and justify-between but for landing page we needed to do changes */}
-
-
-          <NavBar />
-          {/* DESKTOP VIEW BUTTONS: START */}
-          {/* {isLoggedIn ? (
-            <div className="flex items-center flex-col space-x-2">
-              <Link href="/user-profile" className="flex items-center space-x-2 rounded-lg hover:bg-gray-100 transition-colors">
-                <img src={'/userProfileIcon.svg'} alt="User Profile" className="h-10 w-10" />
-                <span className="text-[#1b375d] font-semibold">{userEmail}</span>
-              </Link>
-              <button
-                className=' hover:underline hover:text-blue-950 text-blue-500 hover:cursor-pointer'
-                onClick={handleLogout}
-              >გამოსვლა</button>
-            </div>
-          ) : ( */}
-            {/* Hiding Login/Registration buttons for landing page deployment */}
-            {/* <div className="flex space-x-4 max-md:w-full text-center">
-              <Button
-                title="შესვლა"
-                onClick={() => setShowLoginModal(true)}
-                bgColor="bg-white"
-                textColor="text-[#1b375d]"
-                hoverText="text-white"
-                hoverBg="bg-[#1b375d]"
-              />
-              <Button
-                title="რეგისტრაცია"
-                onClick={() => setShowRegistrationModal(true)}
-                bgColor="bg-[#1b375d]"
-                textColor="text-white"
-                hoverText="text-[#1b375d]"
-                hoverBg="bg-white"
-              />
-            </div>
-          )} */}
-          {/* DESKTOP VIEW BUTTONS: END */}
-        </div>
-        <div className="lg:hidden z-50">
-          <button onClick={toggleMenu} aria-label="Toggle Menu" className="text-[#1b375d] text-4xl">
-            {menuOpen ? <AiOutlineClose /> : <HiMenuAlt3 />}
-          </button>
-        </div>
-        <div
-          ref={menuRef}
-          className={`
-            fixed top-0 right-0 w-[71%] xs:w-1/2 sm:w-1/3 h-full bg-white transition-transform duration-500 transform
-            ${menuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden z-40
-            flex flex-col items-center p-6 space-y-4 pt-20 shadow-lg
-          `}>
-          <NavBar onLinkClick={() => setMenuOpen(false)} />
-          <div className="flex flex-col space-y-4 items-start justify-start w-full pl-6 md:px-4">
-            {/* MOBILE VIEW BUTTONS: START */}
+        <div className="max-w-[1440px] mx-auto w-full flex items-center justify-between">
+          <Link href="/">
+            <Image src="/fincoLogo.svg" alt="FinCo Logo" width={130} height={40} className="h-[50px] w-auto" />
+          </Link>
+          <div className="hidden lg:flex items-center lg:space-x-4 xl:space-x-8 max-md:w-full text-center justify-end w-full">
+            {/* normaly div wrapper of navbar have w-[75%] and justify-between but for landing page we needed to do changes */}
+            <NavBar />
+            {/* DESKTOP VIEW BUTTONS: START */}
             {/* {isLoggedIn ? (
-              <>
-                <div className="flex items-center space-x-2 w-full">
-                  <img src={'/userProfileIcon.svg'} alt="User Profile" className="h-10 w-10" />
-                  <span className="text-[#1b375d] font-semibold text-sm break-all">{userEmail}</span>
-                </div>
-                <Button
-                  title="გამოსვლა"
+              <div className="flex items-center flex-col space-x-2">
+                <Link href="/user-profile" className="flex items-center space-x-2 rounded-lg hover:bg-gray-100 transition-colors">
+                  <Image src="/userProfileIcon.svg" alt="User Profile" width={40} height={40} />
+                  <span className="text-[#1b375d] font-semibold">{userEmail}</span>
+                </Link>
+                <button
+                  className=' hover:underline hover:text-blue-950 text-blue-500 hover:cursor-pointer'
                   onClick={handleLogout}
-                  bgColor="bg-white"
-                  textColor="text-[#1b375d]"
-                  hoverText="text-white"
-                  hoverBg="bg-[#1b375d]"
-                />
-              </>
-            ) : (
-              <>
+                >გამოსვლა</button>
+              </div>
+            ) : ( */}
+              {/* Hiding Login/Registration buttons for landing page deployment */}
+              {/* <div className="flex space-x-4 max-md:w-full text-center">
                 <Button
                   title="შესვლა"
-                  onClick={() => {
-                    setShowLoginModal(true);
-                    setMenuOpen(false);
-                  }}
+                  onClick={() => setShowLoginModal(true)}
                   bgColor="bg-white"
                   textColor="text-[#1b375d]"
                   hoverText="text-white"
@@ -163,18 +107,74 @@ const Header = () => {
                 />
                 <Button
                   title="რეგისტრაცია"
-                  onClick={() => {
-                    setShowRegistrationModal(true);
-                    setMenuOpen(false);
-                  }}
-                  bgColor="bg-[#1b365d]"
+                  onClick={() => setShowRegistrationModal(true)}
+                  bgColor="bg-[#1b375d]"
                   textColor="text-white"
                   hoverText="text-[#1b375d]"
                   hoverBg="bg-white"
                 />
-              </>
+              </div>
             )} */}
-            {/* MOBILE VIEW BUTTONS: END */}
+            {/* DESKTOP VIEW BUTTONS: END */}
+          </div>
+          <div className="lg:hidden z-50">
+            <button onClick={toggleMenu} aria-label="Toggle Menu" className="text-[#1b375d] text-4xl">
+              {menuOpen ? <AiOutlineClose /> : <HiMenuAlt3 />}
+            </button>
+          </div>
+          <div
+            ref={menuRef}
+            className={`
+              fixed top-0 right-0 w-[71%] xs:w-1/2 sm:w-1/3 h-full bg-white transition-transform duration-500 transform
+              ${menuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden z-40
+              flex flex-col items-center p-6 space-y-4 pt-20 shadow-lg
+            `}>
+            <NavBar onLinkClick={() => setMenuOpen(false)} />
+            <div className="flex flex-col space-y-4 items-start justify-start w-full pl-6 md:px-4">
+              {/* MOBILE VIEW BUTTONS: START */}
+              {/* {isLoggedIn ? (
+                <>
+                  <div className="flex items-center space-x-2 w-full">
+                    <Image src="/userProfileIcon.svg" alt="User Profile" width={40} height={40} />
+                    <span className="text-[#1b375d] font-semibold text-sm break-all">{userEmail}</span>
+                  </div>
+                  <Button
+                    title="გამოსვლა"
+                    onClick={handleLogout}
+                    bgColor="bg-white"
+                    textColor="text-[#1b375d]"
+                    hoverText="text-white"
+                    hoverBg="bg-[#1b375d]"
+                  />
+                </>
+              ) : (
+                <>
+                  <Button
+                    title="შესვლა"
+                    onClick={() => {
+                      setShowLoginModal(true);
+                      setMenuOpen(false);
+                    }}
+                    bgColor="bg-white"
+                    textColor="text-[#1b375d]"
+                    hoverText="text-white"
+                    hoverBg="bg-[#1b375d]"
+                  />
+                  <Button
+                    title="რეგისტრაცია"
+                    onClick={() => {
+                      setShowRegistrationModal(true);
+                      setMenuOpen(false);
+                    }}
+                    bgColor="bg-[#1b365d]"
+                    textColor="text-white"
+                    hoverText="text-[#1b375d]"
+                    hoverBg="bg-white"
+                  />
+                </>
+              )} */}
+              {/* MOBILE VIEW BUTTONS: END */}
+            </div>
           </div>
         </div>
       </div>
