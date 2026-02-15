@@ -15,7 +15,8 @@ const ServicesPage = () => {
 
   return (
     <>
-      <div className='flex items-center justify-center flex-col gap-8 py-10 px-6 md:px-10 lg:px-20 bg-[#e6f3ff9f] mt-20'>
+      <div className='flex items-center justify-center flex-col gap-8 py-10 bg-[#e6f3ff9f] mt-20'>
+        <div className='max-w-[1440px] w-full mx-auto flex flex-col items-center gap-8'>
         <SectionHeaders
           header={servicesPageData.mainHeader.header}
           paragraph={servicesPageData.mainHeader.paragraph}
@@ -24,7 +25,7 @@ const ServicesPage = () => {
           gap='2'
           maxWidth='width-full'
         />
-        <div className='flex flex-col gap-10 md:px-20'>
+        <div className='flex flex-col gap-10 px-6 md:px-10 lg:px-16 xl:px-40 w-full'>
           {servicesPageData.detailedServices.map(service => (
             <ServicesPageCard
               key={service.id}
@@ -67,6 +68,7 @@ const ServicesPage = () => {
               padding='p-2'
             />
           ))}
+        </div>
         </div>
       </div>
 

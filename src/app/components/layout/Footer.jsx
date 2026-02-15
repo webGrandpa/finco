@@ -39,24 +39,38 @@ const Footer = () => {
     ];
 
   return (
-    <div className='bg-[#1B365D] pt-8 pb-12 px-6 md:px-10 lg:px-16 xl:px-40 text-white 
-    flex flex-col md:flex-row justify-between gap-10 lg:gap-20'>
-      
-      <div className='flex flex-col md:flex-row justify-between w-full max-w-[1440px] mx-auto'>
-        <div className='social-media w-full md:w-1/4'>
-          <Image src="/finco_footer_logo.svg" alt="footer logo" width={100} height={30} />
-          <p className='text-sm py-2 mt-4'>
-            პროფესიონალური ფინანსური მომსახურება <br /> თქვენი ბიზნესის წარმატებისთვის.
-          </p>
+    <footer className='bg-[#1B365D] text-white'>
+      <div className='max-w-[1440px] w-full mx-auto px-6 md:px-10 pt-12 pb-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 justify-between'>
+          
+          {/* Column 1: Logo + Description + Social */}
+          <div className='flex flex-col'>
+            <Image src="/finco_footer_logo.svg" alt="footer logo" width={120} height={36} />
+            <p className='text-sm text-gray-300 mt-4 leading-relaxed'>
+              პროფესიონალური ფინანსური მომსახურება თქვენი ბიზნესის წარმატებისთვის.
+            </p>
             <SocialMediaIcons />
+          </div>
+
+          {/* Column 2: Services */}
+          <div>
+            <List HeaderTitle="სერვისები" ListItems={ServiceLinks} />
+          </div>
+
+          {/* Column 3: Contact Info */}
+          <div>
+            <List HeaderTitle="საკონტაქტო ინფორმაცია" ListItems={ContactLinks} />
+          </div>
         </div>
-        
-        <div className="w-full md:w-3/4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-8">
-          <List HeaderTitle="სერვისები" ListItems={ServiceLinks} />
-          <List HeaderTitle="საკონტაქტო ინფორმაცია" ListItems={ContactLinks} />
+
+        {/* Bottom divider + copyright */}
+        <div className='border-t border-white/20 mt-10 pt-6 text-center'>
+          <p className='text-xs text-gray-400'>
+            © {new Date().getFullYear()} Finco. ყველა უფლება დაცულია.
+          </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

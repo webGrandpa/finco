@@ -24,7 +24,8 @@ const AboutUsPage = () => {
 
   return (
     <>
-      <div id="about-us-page" className='flex flex-col items-center gap-8 py-10 px-6 md:px-10 lg:px-20 bg-[#e6f3ff9f]'>
+      <div id="about-us-page" className='flex flex-col items-center gap-8 py-10 px-6 md:px-10 lg:px-16 xl:px-40 bg-[#e6f3ff9f]'>
+        <div className='max-w-[1440px] w-full mx-auto flex flex-col items-center gap-8'>
         {/* About Us Header */}
         <div className='flex flex-col justify-center items-center p-6 md:p-8 lg:p-10 w-full gap-4 mt-10'>
           <h2 className={`text-3xl font-bold text-[#1B365D]`}
@@ -82,10 +83,12 @@ const AboutUsPage = () => {
             ))}
           </div>
         </div>
+        </div>
       </div>
       
       {/* Team Section */}
-      <div className='flex flex-col justify-between py-10 items-center px-6 md:px-10 lg:px-20 w-full gap-8 bg-white'>
+      <div className='flex flex-col justify-between py-10 items-center px-6 md:px-10 lg:px-16 xl:px-40 w-full gap-8 bg-white'>
+        <div className='max-w-[1440px] w-full mx-auto flex flex-col items-center gap-8'>
         <SectionHeaders
           header={teamHeader.header}
           paragraph={teamHeader.paragraph}
@@ -115,6 +118,7 @@ const AboutUsPage = () => {
           hoverText="text-[#1b375d]"
           hoverBg="bg-white"
         />
+        </div>
       </div>
 
       {showConsultationModal && (

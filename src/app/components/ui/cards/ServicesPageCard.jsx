@@ -17,23 +17,23 @@ const ServicesPageCard = ({
 }) => {
   return (
     <div className={clsx(
-      'flex flex-col justify-center items-center bg-white p-9 rounded-xl shadow-md md:justify-between gap-8',
+      'flex flex-col justify-center items-center bg-white p-6 md:p-8 rounded-xl shadow-md md:justify-between gap-6 md:gap-8',
       isReversed ? 'md:flex-row-reverse' : 'md:flex-row'
     )}>
       
-      <div className='flex-shrink-0 md:w-1/2'>
+      <div className='flex-shrink-0 w-full md:w-[45%] lg:w-1/2'>
         <Image 
             src={image} 
             alt={header} 
             width={584}
             height={390}
-            className={clsx('mx-auto w-full h-auto', imageWidth, imageHeight)} 
+            className='mx-auto w-full h-auto max-w-full rounded-lg object-cover'
         />
       </div>
 
-      <div className='flex flex-col justify-center items-center md:items-start md:w-1/2'>
-        <h2 className='text-2xl font-bold text-[#1B365D] pb-6 text-center md:text-left'>{header}</h2>
-        <p className='text-sm text-[#1B365D] max-w-[580px] pb-3 text-center md:text-left'>
+      <div className='flex flex-col justify-center items-center md:items-start w-full md:w-[55%] lg:w-1/2'>
+        <h2 className='text-xl lg:text-2xl font-bold text-[#1B365D] pb-4 lg:pb-6 text-center md:text-left'>{header}</h2>
+        <p className='text-sm text-[#1B365D] pb-3 text-center md:text-left'>
           {paragraph}
         </p>
             

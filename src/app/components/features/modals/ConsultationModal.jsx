@@ -1,8 +1,9 @@
-// src/components/ConsultationModal.jsx
+"use client";
+
 import React, { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
 import Image from 'next/image';
 import Button from '../../ui/buttons/Button';
+import { sendEmail } from '@/lib/sendEmail';
 
 const ConsultationModal = ({ showModal, setShowModal }) => {
   const [name, setName] = useState('');
@@ -13,7 +14,7 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
   const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleConsultationRequest = (e) => {
+  const handleConsultationRequest = async (e) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
@@ -25,23 +26,17 @@ const ConsultationModal = ({ showModal, setShowModal }) => {
       message: message,
     };
 
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+    try {
+      await sendEmail(
         process.env.NEXT_PUBLIC_EMAILJS_CONSULTATION_TEMPLATE_ID,
-        templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY 
-      )
-      .then(
-        () => {
-          setStatus('success');
-        },
-        (error) => {
-          console.error('Email send failed:', error);
-          setStatus('error');
-          setErrorMessage('დაფიქსირდა შეცდომა სერვერზე. გთხოვთ სცადოთ მოგვიანებით.');
-        }
+        templateParams
       );
+      setStatus('success');
+    } catch (error) {
+      console.error('Consultation request failed:', error);
+      setStatus('error');
+      setErrorMessage('დაფიქსირდა შეცდომა სერვერზე. გთხოვთ სცადოთ მოგვიანებით.');
+    }
   };
 
   // Reset form when modal closes/opens

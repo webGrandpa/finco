@@ -17,7 +17,8 @@ const EducationPage = () => {
     const openRegistrationCourseModal = () => setShowRegistrationCourseModal(true);
 
     return (
-        <div className='flex flex-col items-center gap-8 py-10 px-6 md:px-10 lg:px-20 bg-[#e6f3ff9f] mt-20'>
+        <div className='flex flex-col items-center gap-8 py-10 px-6 md:px-10 lg:px-16 xl:px-40 bg-[#e6f3ff9f] mt-20'>
+            <div className='max-w-[1440px] w-full mx-auto flex flex-col items-center gap-8'>
             <SectionHeaders
                 header={educationHeader.header}
                 paragraph={educationHeader.paragraph}
@@ -47,6 +48,7 @@ const EducationPage = () => {
                         />
                     </ServicesPageCard>
                 ))}
+            </div>
             </div>
 
             {showRegistrationCourseModal && (
